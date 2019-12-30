@@ -1,0 +1,28 @@
+version: "3"
+services:
+  couchbase:
+    image: couchbase:latest
+    ports:
+      - "8091-8096:8091-8096"
+      - "11210-11211:11210-11211"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - couchmovies_net
+
+  # movieservice:
+  #   container_name: couchmovies_service
+  #   depends_on: 
+  #     - couchbase
+  #   build: 
+  #     context: ./movieservice
+  #     dockerfile: Dockerfile
+  #   ports: 
+  #     - "8080:8080"
+
+
+networks:
+  couchmovies_net:
+ 

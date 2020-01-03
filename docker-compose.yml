@@ -1,28 +1,24 @@
 version: "3"
 services:
   couchbase:
-    image: couchbase:latest
+    image: escapedcanadian/couchmovies-couchbase:latest
+    container_name: couchbase
     ports:
       - "8091-8096:8091-8096"
       - "11210-11211:11210-11211"
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-    networks:
-      - couchmovies_net
 
-  # movieservice:
-  #   container_name: couchmovies_service
-  #   depends_on: 
-  #     - couchbase
-  #   build: 
-  #     context: ./movieservice
-  #     dockerfile: Dockerfile
-  #   ports: 
-  #     - "8080:8080"
+  movieservice:
+    image: escapedcanadian/couchmovies-movieservice:latest
+    container_name: movieservice
+    depends_on: 
+      - couchbase
+    ports: 
+      - "8080:8080"
 
-
-networks:
-  couchmovies_net:
+  web:
+    image: escapedcanadian/couchmovies-web:latest
+    depends_on:
+      - movieservice
+    ports: 
+      - "8000:8000"
  

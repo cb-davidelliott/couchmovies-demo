@@ -19,6 +19,7 @@ services:
     image: escapedcanadian/couchmovies-web:latest
     depends_on:
       - movieservice
+      - couchbase
     ports: 
       - "8000:8000"
  

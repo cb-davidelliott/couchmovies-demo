@@ -9,7 +9,7 @@ This repo contains:
 * A docker compose file
 * A pre-built Tableau dashboard
 
-The code to build the docker containers used in this demo may be found [here](https://github.com/escapedcanadian/couchmovies).
+Pre-built docker images used for the demo, as referenced by the docker compose file, should already exist.  If you wish to rebuild/modify them, the code to build the docker containers used in this demo may be found [here](https://github.com/escapedcanadian/couchmovies).
 
 Honorable mention goes to [Denis Rosa](email:denis.rosa@couchbase.com) for building the [intial version of the FTS app](https://github.com/deniswsrosa/couchflix).  Thanks Denis!
 
@@ -17,32 +17,58 @@ Honorable mention goes to [Denis Rosa](email:denis.rosa@couchbase.com) for build
 To demo Couchbase, N1QL and FTS
 
 * Docker installed on your laptop (this has only been tested on Mac)
-* An internet connection (used only to retrieve movie poster images from TMDB - this restriction may be lifted in the future)
+* Git installed on your laptop 
+
+ ```brew install git```
+
+* Clone this repo 
+
+ ```git clone https://github.com/escapedcanadian/couchmovies-demo <demoDir>``` 
+ 
+* Pull the requied Docker images 
+
+ ```<demoDir>/docker-compose pull```
+
+* *Optional* - During the demo, an internet connection is only used to retrieve movie poster images from TMDB. ***If you follow the script exactly***, all the the required movie posters are already available without an internet connection.  If you choose to go 'off script' and search for different movies, you will require a live internet connection.
+
 
 The Analytics portion of the demo also requires:
 
-* CDATA ODBC Connector for Couchbase - licenesed, installed and configured (see instructions below)
+* CDATA ODBC Connector for Couchbase - licensed, installed and configured (see instructions below)
 * Tableau Desktop - licensed and installed
 
 ## Running the Demo
-Clone this repo onto your laptop.
 
 Unzip and read CouchmoviesDemoScript.  It also contains speaker's notes for the CouchmoviesPrologue Powerpoint presentation, should you choose to use it.
 
 ### Starting the environment
 This demo uses docker compose to create a network of multiple Docker containers.
 
-* A single node Couchbase 'cluster'
-* A RESTful service that fronts the database, writting in Java and Spring (exposed on port 8080)
-* A simple http server that serves up a single page web application (exposed on port 8000)
- * in the future, this web server may also supply the minimal number of movie posters required
+* A single node Couchbase 'cluster' (exposed to localhost using default Couchbase ports)
+* A RESTful service that fronts the database, writting in Java and Spring (exposed to localhost on port 8080)
+* A simple http server that serves up a single page web application (exposed to localhost on port 8000)
+ * This web server also supplies the movie poster images *when you follow the script exactly*
 
-To create the environment, change to the directory that contains the repo (and the docker-compose.yaml file). Run the following ...
+To create the environment, change to the directory that contains the repo (and the docker-compose.yml file). Run the following ...
+
 ```
-docker-compose run -d web
+docker-compose run -d
 ```
 
 Please allow a full minute for the environment to start.
+
+### Running the tweet feeder
+When it is time, you can start the tweet feeder with the following command (run from the same demo dir)...
+
+```
+docker-compose exec couchabse startFeeder
+```
+
+You shouldn't need to, but if you want to reset the ```tweettarget``` bucket in order to run the analytics demo again, without restarting the environment, you can run
+
+```
+docker-compose exec couchbase resetTweets
+```
 
 ### Shutting down the environment
 From the directory that contains the docker-compose.yaml file, run ...

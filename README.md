@@ -34,8 +34,22 @@ To demo Couchbase, N1QL and FTS
 
 The Analytics portion of the demo also requires:
 
+* ODBC Manager (if you are on a mac)
 * CDATA ODBC Connector for Couchbase - licensed, installed and configured (see instructions below)
 * Tableau Desktop - licensed and installed
+
+### Install ODBC Manager (on Mac)
+For mac laptops, you will need an ODBC manager. There are many available, but a decent one is [here](http://www.odbcmanager.net/).
+
+
+### Installing CDATA
+Instructions for licensing and installing CDATA may be found [here](https://docs.google.com/document/d/13EW5Ksf6mfHS1nDxjK5fqwFYNTtcabpGPUkMnpOgO24).
+
+###Installing Tableau
+* Download from [here](https://www.tableau.com/products/desktop/download)
+* License using the following code, which is for our use only, as their partner:  ***TCFT-4E52-1B80-9423-04F2***
+
+ Remember to be kind to their BDRs when start emailing you five minutes after you download.
 
 ## Running the Demo
 
@@ -58,7 +72,7 @@ docker-compose run -d
 Please allow a full minute for the environment to start.
 
 ### Running the tweet feeder
-When it is time, you can start the tweet feeder with the following command (run from the same demo dir)...
+When called for in the script, you can start the tweet feeder with the following command (run from the same demo dir)...
 
 ```
 docker-compose exec couchabse startFeeder

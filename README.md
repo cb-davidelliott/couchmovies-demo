@@ -52,9 +52,26 @@ For mac laptops, you will need an ODBC manager. There are many available, but a 
 ### Installing CDATA
 Instructions for licensing and installing CDATA may be found [here](https://docs.google.com/document/d/13EW5Ksf6mfHS1nDxjK5fqwFYNTtcabpGPUkMnpOgO24).
 
+### Configuring the ODBC Entry
+1. Open ODBC Manager.
+2. Select System DSN from the top menu
+3. Press 'Add...'
+4. Select CData ODBC Driver for Couchbase
+5. Set the ***Data Source Name (DSN):*** to ***Couchmovies Demo***
+6. For each of the following, press ***Add*** in the bottom right of the screen to set the ***Keyword:Value*** pairs
+ * Server : ***127.0.0.1***
+ * CouchbaseService:  ***Analytics***
+ * User: ***Administrator***
+ * Password: ***password***
+ * verbosity: ***5***
+ * logfile: ***/Users/<mac username>/cdata.log***
+ * Username: ***Administrator***
+ * Port: ***8095***
+
 ### Installing Tableau
 * Download from [here](https://www.tableau.com/products/desktop/download)
 * License using the following code, which is for our use only, as their partner:  ***TCFT-4E52-1B80-9423-04F2***
+*
 
  Remember to be kind to their BDRs when start emailing you five minutes after you download.
 

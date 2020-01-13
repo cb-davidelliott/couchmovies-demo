@@ -1,0 +1,98 @@
+#!/bin/bash
+echo "FTS REST API QUERY"
+echo "curl  -s -u Administrator:password -XPOST -H "Content-Type: application/json" \
+http://localhost:8094/api/index/tweets_geo/query \
+-d '{
+  "explain": false,
+  "from": 0,
+  "size": 10,
+  "fields": [
+    "*"
+  ],
+  "query": {
+    "location": {
+      "lat": 40.954866,
+	  "lon": -72.167654
+     },
+    "distance": "50mi",
+    "field": "geo"
+  },
+  "sort": [
+    {
+      "by": "geo_distance",
+      "field": "geo",
+      "unit": "mi",
+      "location": {
+      	"lat": 40.954866,
+	  	"lon": -72.167654
+      }
+    }
+  ]
+}' | jq ."
+
+echo ""
+echo "Result"
+echo ""
+
+curl  -s -u Administrator:password -XPOST -H "Content-Type: application/json" \
+http://localhost:8094/api/index/tweets_geo/query \
+-d '{
+  "explain": false,
+  "from": 0,
+  "size": 10,
+  "fields": [
+    "*"
+  ],
+  "query": {
+    "location": {
+      "lat": 40.954866,
+	  "lon": -72.167654
+     },
+    "distance": "50mi",
+    "field": "geo"
+  },
+  "sort": [
+    {
+      "by": "geo_distance",
+      "field": "geo",
+      "unit": "mi",
+      "location": {
+      	"lat": 40.954866,
+	  	"lon": -72.167654
+      }
+    }
+  ]
+}' | jq . 
+
+echo ""
+echo "Result with filter -  jq '.hits[] | { username: .fields.username, tweet: .fields.tweet, geo: .fields.geo}'"
+
+curl  -s -u Administrator:password -XPOST -H "Content-Type: application/json" \
+http://localhost:8094/api/index/tweets_geo/query \
+-d '{
+  "explain": false,
+  "from": 0,
+  "size": 10,
+  "fields": [
+    "*"
+  ],
+  "query": {
+    "location": {
+      "lat": 40.954866,
+	  "lon": -72.167654
+     },
+    "distance": "50mi",
+    "field": "geo"
+  },
+  "sort": [
+    {
+      "by": "geo_distance",
+      "field": "geo",
+      "unit": "mi",
+      "location": {
+      	"lat": 40.954866,
+	  	"lon": -72.167654
+      }
+    }
+  ]
+}' | jq '.hits[] | { username: .fields.username, tweet: .fields.tweet, geo: .fields.geo}'

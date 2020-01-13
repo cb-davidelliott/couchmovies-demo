@@ -13,10 +13,17 @@ Pre-built docker images used for the demo, as referenced by the docker compose f
 
 Honorable mention goes to [Denis Rosa](email:denis.rosa@couchbase.com) for building the [intial version of the FTS app](https://github.com/deniswsrosa/couchflix).  Thanks Denis!
 
-##Prerequisites
+##Prerequisites (designed for Mac laptop)
 To demo Couchbase, N1QL and FTS
 
-* Docker installed on your laptop (this has only been tested on Mac)
+* Docker installed on your laptop 
+
+ [https://hub.docker.com/?overlay=onboarding](https://hub.docker.com/?overlay=onboarding)
+
+* jq installed on your laptop (pretty-prints and filters json results)
+
+ ``` brew install jq ```
+
 * Git installed on your laptop 
 
  ```brew install git```

@@ -13,7 +13,7 @@ Pre-built docker images used for the demo, as referenced by the docker compose f
 
 Honorable mention goes to [Denis Rosa](email:denis.rosa@couchbase.com) for building the [intial version of the FTS app](https://github.com/deniswsrosa/couchflix).  Thanks Denis!
 
-##Prerequisites (designed for Mac laptop)
+## Prerequisites (designed for Mac laptop)
 To demo Couchbase, N1QL and FTS
 
 * Docker installed on your laptop 
@@ -52,7 +52,7 @@ For mac laptops, you will need an ODBC manager. There are many available, but a 
 ### Installing CDATA
 Instructions for licensing and installing CDATA may be found [here](https://docs.google.com/document/d/13EW5Ksf6mfHS1nDxjK5fqwFYNTtcabpGPUkMnpOgO24).
 
-###Installing Tableau
+### Installing Tableau
 * Download from [here](https://www.tableau.com/products/desktop/download)
 * License using the following code, which is for our use only, as their partner:  ***TCFT-4E52-1B80-9423-04F2***
 

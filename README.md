@@ -38,6 +38,8 @@ To demo Couchbase, N1QL and FTS
 
 * *Optional* - During the demo, an internet connection is only used to retrieve movie poster images from TMDB. ***If you follow the script exactly***, all the the required movie posters are already available without an internet connection.  If you choose to go 'off script' and search for different movies, you will require a live internet connection.
 
+### Analytics prerequisites
+The bulk of the demo (N1QL & FTS) do not have any dependencies on these components.  You can omit installing these components if you do not want/need the analytics element of the demo.
 
 The Analytics portion of the demo also requires:
 
@@ -45,14 +47,14 @@ The Analytics portion of the demo also requires:
 * CDATA ODBC Connector for Couchbase - licensed, installed and configured (see instructions below)
 * Tableau Desktop - licensed and installed
 
-### Install ODBC Manager (on Mac)
+#### Install ODBC Manager (on Mac)
 For mac laptops, you will need an ODBC manager. There are many available, but a decent one is [here](http://www.odbcmanager.net/).
 
 
-### Installing CDATA
+#### Installing CDATA
 Instructions for licensing and installing CDATA may be found [here](https://docs.google.com/document/d/13EW5Ksf6mfHS1nDxjK5fqwFYNTtcabpGPUkMnpOgO24).
 
-### Configuring the ODBC Entry
+#### Configuring the ODBC Entry
 1. Open ODBC Manager.
 2. Select System DSN from the top menu
 3. Press 'Add...'
@@ -68,7 +70,7 @@ Instructions for licensing and installing CDATA may be found [here](https://docs
  * Username: ***Administrator***
  * Port: ***8095***
 
-### Installing Tableau
+#### Installing Tableau
 * Download from [here](https://www.tableau.com/products/desktop/download)
 * License using the following code, which is for our use only, as their partner:  ***TCFT-4E52-1B80-9423-04F2***
 *

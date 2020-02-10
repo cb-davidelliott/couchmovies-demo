@@ -3,8 +3,10 @@ services:
   couchbase:
     image: escapedcanadian/couchmovies-couchbase:latest
     container_name: couchbase
+    # Use the standard ports, except map 8091 to 8090 on the host - this allows the browser cache of SQL queries not to be polluted
     ports:
-      - "8091-8096:8091-8096"
+      - "8090:8091"
+      - "8092-8096:8092-8096"
       - "11210-11211:11210-11211"
 
   movieservice:

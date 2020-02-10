@@ -79,6 +79,12 @@ Instructions for licensing and installing CDATA may be found [here](https://docs
 
 Unzip and read CouchmoviesDemoScript.  It also contains speaker's notes for the CouchmoviesPrologue Powerpoint presentation, should you choose to use it.
 
+OPTIONAL: If you want to enable the image cover (the image that appears when you click over a movie) you will need to install a chrome driver:
+
+```
+brew cask install chromedriver //on mac
+```
+
 ### Starting the environment
 This demo uses docker compose to create a network of multiple Docker containers.
 

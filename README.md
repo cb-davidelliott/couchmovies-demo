@@ -52,23 +52,38 @@ For mac laptops, you will need an ODBC manager. There are many available, but a 
 
 
 #### Installing CDATA
-Instructions for licensing and installing CDATA may be found [here](https://docs.google.com/document/d/13EW5Ksf6mfHS1nDxjK5fqwFYNTtcabpGPUkMnpOgO24).
+You may choose between using the CDATA JDBC or ODBC drivers (JDBC has been better lately).
 
-#### Configuring the ODBC Entry
+Request a Not-For-Resale partner license from CData [here](https://www.cdata.com/community/couchbase/?human=true)
+
+
+##### Configuring the ODBC Entry
 1. Open ODBC Manager.
 2. Select System DSN from the top menu
 3. Press 'Add...'
 4. Select CData ODBC Driver for Couchbase
-5. Set the ***Data Source Name (DSN):*** to ***Couchmovies Demo***
+5. Set the ***Data Source Name (DSN):*** to ***CouchmoviesDemo***
 6. For each of the following, press ***Add*** in the bottom right of the screen to set the ***Keyword:Value*** pairs
  * Server : ***127.0.0.1***
  * CouchbaseService:  ***Analytics***
  * User: ***Administrator***
  * Password: ***password***
  * verbosity: ***5***
- * logfile: ***/Users/<mac username>/cdata.log***
- * Username: ***Administrator***
- * Port: ***8095***
+ * logfile: ***/Users/\<mac username\>/cdata.log***
+ * AnalyticsPort: ***8095***
+ * WebConsolePort: ***8090***
+
+##### Configuring the JDBC Driver
+
+Once you've received a license, go to their [download page](www.cdata.com/drivers/couchbase/download/jdbc/) and click on the "full" download button.
+Download the product (a zip file) into some temporary directory. Extract the jar and run
+
+```
+java -jar setup.jar -console
+```
+Accept the licence and answer the prompts.
+
+ 
 
 #### Installing Tableau
 * Download from [here](https://www.tableau.com/products/desktop/download)
@@ -107,7 +122,7 @@ Please allow a full minute for the environment to start.
 When called for in the script, you can start the tweet feeder with the following command (run from the same demo dir)...
 
 ```
-docker-compose exec couchabse startFeeder
+docker-compose exec couchbase startFeeder
 ```
 
 You shouldn't need to, but if you want to reset the ```tweettarget``` bucket in order to run the analytics demo again, without restarting the environment, you can run

@@ -87,7 +87,7 @@ Accept the licence and answer the prompts.
 
 #### Installing Tableau
 * Download from [here](https://www.tableau.com/products/desktop/download)
-* License using the following code, which is for our use only, as their partner:  ***TCFT-4E52-1B80-9423-04F2***
+* License using the following code, which is for our use only, as their partner:  ***TCTU-D398-FC00-3E15-5264***
 *
 
  Remember to be kind to their BDRs when start emailing you five minutes after you download.

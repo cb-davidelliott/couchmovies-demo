@@ -36,7 +36,7 @@ To demo Couchbase, N1QL and FTS
 
  ```<demoDir>/docker-compose pull```
 
-* *Optional* - During the demo, an internet connection is only used to retrieve movie poster images from TMDB. ***If you follow the script exactly***, all the the required movie posters are already available without an internet connection.  If you choose to go 'off script' and search for different movies, you will require a live internet connection.
+* **UPDATE** - TMDB has changed the metadata (poster urls) since this data was downloaded.  This means you will end up with missing posters if you try to search for a movie that is not mentioned in the script.  ***If you follow the script exactly***, all the the required movie posters are already available in the images without an internet connection.  You **DO NOT** require an internet connection to run this demo, only to pull the images down in the first place (which is something you should do before you practice).
 
 ### Analytics prerequisites
 The bulk of the demo (N1QL & FTS) do not have any dependencies on these components.  You can omit installing these components if you do not want/need the analytics element of the demo.
